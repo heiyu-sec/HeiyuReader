@@ -49,4 +49,6 @@
         <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
             <property name="basePackage" value="com.imooc.reader.mapper"/>
         </bean>
+        <!--4.配置mybatis-config.xml -->
+
 </beans>
