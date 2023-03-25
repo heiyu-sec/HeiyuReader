@@ -52,6 +52,11 @@
         <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
             <property name="basePackage" value="com.imooc.reader.mapper"/>
         </bean>
+        <!--定义事务管理器-->
+        <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+            <property name="dataSource" ref="dataSource"/>
+        </bean>
+        <tx:annotation-driven transaction-manager="transactionManager"/>
         <!--4.配置mybatis-config.xml -->
 
 </beans>
