@@ -17,12 +17,12 @@ public class TestService {
     @Resource
     private TestMapper testMapper;
 
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public void batchImport(){
         for(int i = 0 ; i < 5 ;i++){
-            if(i==2){
+            /*if(i==2){
                 throw new RuntimeException("未处理异常");
-            }
+            }*/
             testMapper.insertSample();
         }
     }
