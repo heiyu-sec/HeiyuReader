@@ -48,6 +48,18 @@
             <property name="dataSource" ref="dataSource"/>
             <property name="mapperLocations" value="classpath:mappers/*.xml"/>
             <property name="configLocation" value="classpath:mybatis-config.xml"/>
+            <!-- MyBaits Plus 3.4以后版本需要在MybatisSqlSessionFactoryBean.plugins属性中进行设置 -->
+            <property name="plugins">
+                <array>
+                    <bean class="com.baomidou.mybatisplus.extension.plugins.MybatisPlusInterceptor">
+                        <property name="interceptors">
+                            <list>
+                                <bean class="com.baomidou.mybatisplus.extension.plugins.inner.PaginationInnerInterceptor"/>
+                            </list>
+                        </property>
+                    </bean>
+                </array>
+            </property>
         </bean>
         <!--3.配置Mapper扫描器-->
         <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
